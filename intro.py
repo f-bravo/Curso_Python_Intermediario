@@ -57,8 +57,6 @@ copie a chave https e dê o seguinte comando:
 # Enviando os commites: 
 -> git push origin master
 
-# digite usuário e senha e pronto - será enviado
-
 #------------------------------------------------------
 
 # Sempre que modificar um arquivo ou vários tem que repetir o processo:
@@ -67,7 +65,6 @@ copie a chave https e dê o seguinte comando:
 -> git commit -m 'explicação'
 -> git push origin master
 # ------------------------------------------------------------
-
 
 # OBS na próxima vez pode setar (-u) o nome para digitar apenas git push:
 -> git push origin master -u
