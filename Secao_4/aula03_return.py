@@ -27,7 +27,7 @@ def soma_(x, y):
     return x + y
 
 soma3 = soma_(11, 4)
-print(soma3)
+print(soma3) # Maior que 10
 
 
 

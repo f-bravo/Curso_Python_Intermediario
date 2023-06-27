@@ -69,7 +69,8 @@ copie a chave https e dê o seguinte comando:
 # OBS na próxima vez pode setar (-u) o nome para digitar apenas git push:
 -> git push origin master -u
 """
-
+ 
+# error: pathspec 'Básico de Função e escopo' did not match any file(s) known to git
 
 
 
