@@ -43,9 +43,13 @@ finally:
 
 print()
 
+
 print('\n# Raise\n')
 # Raise - lançando exceções
 # https://docs.python.org/pt-br/3/library/exceptions.html#built-in-exceptions
+
+# Lançando o próprio erro
+
 def nao_aceito_zero(d):
     if d == 0:
         raise ZeroDivisionError('Você está tentando dividir por zero')

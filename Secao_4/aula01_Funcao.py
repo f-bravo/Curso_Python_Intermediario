@@ -55,3 +55,7 @@ soma2(5, 10, 15) # x=5 y=10 z=15. Total = 30
 
 # Repare: 
 # Z sendo ou não enviado o código não quebra. Ao não enviar Z ele usa None
+
+print('----------------------------------------------------------')
+print('Importando a aula01 de funções para a aula13 como exemplo.')
+print('Esse módulo se chama:', __name__)
