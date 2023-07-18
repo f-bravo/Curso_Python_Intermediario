@@ -20,7 +20,7 @@ print(Pacotes.quadrado(5))
 
 # Como exportar tudo do Módulo Calculadora usando o __init__?
 # ao fazer o import o package Pacotes é considerado como um módulo.
-# Quando faz import dentro de um módulo i Python exporta todas as coisas.
+# Quando faz import dentro de um módulo o Python exporta todas as coisas.
 # Nesse exemplo serão exportadas tds as funções. Inclusive a nova função
 # que multiplica 3 variáveis.
 print(Pacotes.calc_mult(2,2,2))

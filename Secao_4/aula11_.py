@@ -42,7 +42,7 @@ intervalo = range(0)
 
 
 print('\n# Iterável e iterator:\n')
-# Iterável - de detem os valores
+# Iterável - detem os valores
 # Iterator - entrega um valor por vez - só entrega o próximo valor (next)
 
 iterable = ['Eu', 'Tenho', '__iter__']

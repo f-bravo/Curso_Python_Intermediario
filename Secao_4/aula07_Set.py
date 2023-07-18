@@ -31,7 +31,7 @@ set2 = {1,2,3, (4,4,5,)}  # {1, 2, 3, (4, 4, 5)}
 print(set2)
 
 # - não tem índex;
-# não da para encotrar um elemento. Ele sempre retorna uma sequência sem ordem garantida 
+# não da para encontrar um elemento. Ele sempre retorna uma sequência sem ordem garantida 
 print('----')
 # - são iteráveis (for, in, not in)
 for i in set2:

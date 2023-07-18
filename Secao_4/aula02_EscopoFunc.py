@@ -10,7 +10,7 @@ def escopo():
 
 # print(x) # 'x' is not define - fora da função n tem acesso a X
 escopo()
-# mas de definir a variável como global ela poderá ser acessada.
+# mas se definir a variável como global ela poderá ser acessada.
 
 x = 1
 
@@ -25,7 +25,7 @@ def escopo2():
 
 escopo2() # 1, 2
 
-# Só é possível acessar as variáveis dos escopos de cima. Mas não pdoe acessar dos
+# Só é possível acessar as variáveis dos escopos de cima. Mas não pode acessar dos
 # escopos internos. É o caso do Y. Ele só pode ser acessado no escopo_interno.
 
 # Veja a mesma função abaixo:
@@ -41,7 +41,7 @@ def escopo3():
     print(x) # 10
 
 escopo3() # 10, 2
-print(x) # 1 -> X fora do escopo continua sendo X
+print(x) # 1 -> X fora do escopo continua sendo X=1
 
 
 # É como aquela boneca Russa que vc tira uma de dentro da outra. A mais interna tem

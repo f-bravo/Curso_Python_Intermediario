@@ -9,7 +9,6 @@ import sys
 print(sys.platform)
 
 
-
 # partes - from nome_modulo import objeto1, objeto2
 # Vantagens: nomes pequenos
 # Desvantagens: Sem o namespace do módulo - cuidado p não sobrescrever os nomes
@@ -18,7 +17,7 @@ from sys import exit, platform
 print(platform) # não precisa do name_space sys.
 
 # alias 1 - import nome_modulo as apelido
-# Use a comunidade Python tem o costume de renomear ok. Se não, não faça.
+# Use o nome que a comunidade Python tem o costume de renomear ok. Se não, não faça.
 import sys as s
 
 # sys = 'alguma coisa'
@@ -48,7 +47,7 @@ print('\n# Modularização\n')
 # Modularização - Entendendo os seus próprios módulos Python.
 
 # A separação da aulas da seção 4 está organizada em módulos, aulas por temas.
-# A seção 4 é um package. Um pacote para separa a seção 4.
+# A seção 4 é um package. Um pacote para separar a seção 4.
 # O primeiro módulo executado chama-se __main__
 print('Nome desse módulo:', __name__)
 # Você pode importar outro módulo inteiro ou parte do módulo.

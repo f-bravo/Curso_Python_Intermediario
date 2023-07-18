@@ -1,4 +1,4 @@
-# Funções return
+# Funções com return
 
 def soma(x, y):
     print(x + y)

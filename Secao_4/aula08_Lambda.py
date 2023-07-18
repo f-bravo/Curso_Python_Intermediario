@@ -28,7 +28,7 @@ lista.sort(key=lambda item: item['nome'])
 for i in lista:
     print(i)
 
-# Importante: usar Lambda com sorte a lista é alterada.
+# Importante: usar Lambda com sort a lista é alterada.
 # Caso não queira alterar a lista use sorted. Copia raza ok.
 # Se quiser copia profunda ordena e faça o deep.copy() depois
 print('------------LAMBDA com sorted: -------------\n')

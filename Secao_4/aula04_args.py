@@ -1,5 +1,5 @@
 # args - argumentos não nomeados
-# * args(empacotamento e desempacotamento)
+# *args(empacotamento e desempacotamento)
 
 # Desempacotamento:
 x, y, *resto = 1, 2, 3, 4, 5

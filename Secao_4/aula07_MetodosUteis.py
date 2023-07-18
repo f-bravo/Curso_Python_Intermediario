@@ -24,7 +24,7 @@ pessoa = {
 # len - quantas chaves
 print(len(pessoa)) # 5
 
-# # keys - iterável com as chaves
+# keys - iterável com as chaves
 print(pessoa.keys()) # dict_keys(['nome', 'sobrenome', 'idade', 'altura', 'endereços'])
 
 # values - iterável com os valores
@@ -47,12 +47,12 @@ print(list(pessoa.values()))
 print(tuple(pessoa.items()))
 print(list(pessoa.items()))
 
-# Ao chamar o iterador com um for está se referendo as chaves. Se quiser ver os valores
+# Ao chamar o iterador com um for está se referindo as chaves. Se quiser ver os valores
 # precisa dizer pessoa.values()
 for i in pessoa.values():
     print(i)
 
-# para ver a cahve e valor use o items()
+# para ver a chave e valor use o items()
 for i in pessoa.items():
     print(i)
 
@@ -70,12 +70,12 @@ d1 = {
 }
 d2 = d1
 print(d2) # {'c1': 1, 'c2': 2}
-# nesse caso ele não copia pois usa o memos dicionário salvo na memória
+# nesse caso ele não copia pois usa o mesmo dicionário salvo na memória
 # ao alterar d2, d1 também será alterado. 
 d2['c1'] = 100
 print(d1) # {'c1': 100, 'c2': 2}
 
-# por isso quando trabalhar com valores mutáveis tem que ficar atendo ao fazer a 
+# por isso quando trabalhar com valores mutáveis tem que ficar atento ao fazer a 
 # atribuição(=)
 
 # Usando o copy()
@@ -102,7 +102,7 @@ print(dic2) # {'c1': 111, 'c2': 2, 'l1': [0, 1, 99]}
 # Alterando dic2 também alterou o dic1
 # Copia os valores imutávels e linka os valores mutáveis
 
-# Para copiar tudo Python tem um módulo:
+# Para copiar tudo Python tem um módulo: copy
 import copy
 dic1 = {
     'c1': 1,
@@ -138,7 +138,7 @@ p2 = {
 last_key = p2.popitem()
 print(p2) # {'nome': 'Felipe'}
 
-# update - Atualiza um dicionário com outro - modifica valroes ou cria novos valores
+# update - Atualiza um dicionário com outro - modifica valores ou cria novos valores
 p3 = {
     'nome': 'Felipe',
     'sobrenome': 'Bravo',
@@ -163,7 +163,7 @@ print(p3)
 # update também funciona em tuplas e listas
 # p3.update(nome='novo valor', idade=30)
 # tupla = (('nome', 'novo valor'), ('idade', 30))
-# lembrando que a tupla não pdoe ser modificada diretamente. Precisa ser transformada numa lista
+# lembrando que a tupla não pode ser modificada diretamente. Precisa ser transformada numa lista
 lista = [['nome', 'novo valor'], ['idade', 30]]
 p3.update(lista)
 print(p3)

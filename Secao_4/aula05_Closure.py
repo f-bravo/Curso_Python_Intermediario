@@ -1,6 +1,6 @@
 # Closure e funções que retornam outra funções
 
-# vc adia a execução da função interna para que force o Pytho na salvar
+# vc adia a execução da função interna para que force o Python a salvar
 # o resultado da função que foi adiada na memória.
 
 

@@ -21,7 +21,7 @@ print(lista)
 
 
 print('\n# Mapeamento de dados em list comprehension\n')
-# Mapeamento: pega o dado transforma ou não e jgoa em outra lista
+# Mapeamento: pega o dado transforma ou não e joga em outra lista
 # Um dicionário na list Comprehension precisa ter as chaves dentro da lista[]
 produtos = [
     {'nome': 'p1', 'preco': 50, },
@@ -44,7 +44,7 @@ print(*novos_produtos2, sep='\n')
 print('-----+-----')
 
 # Alterando o preço em 20:
-# Os mapeamentos fica ma esquerda do FOR
+# Os mapeamentos fica na esquerda do FOR
 # O IF a esquerda sempre precisará ter um ELSE.
 novos_produtos2 = [
     {**produto, 'preco': produto['preco'] * 1.20}
