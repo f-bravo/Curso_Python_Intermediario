@@ -1,8 +1,8 @@
 from functools import partial
 from types import GeneratorType
 
-
 # map - para mapear dados
+
 def print_iter(iterator):
     print(*list(iterator), sep='\n')
     print()
@@ -42,12 +42,11 @@ print_iter(novos_produtos2)
 # Função MAP --------------------------------------------------
 # Para o iterator do MAP não esgotar converta numa lista(list) 
 
-
 def muda_preco_de_produtos(produto):
     return {
         **produto,
         'preco': aumento_dez_porcento(
-            produto['preco']
+        produto['preco']
         )
     }
 
