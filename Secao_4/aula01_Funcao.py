@@ -59,3 +59,37 @@ soma2(5, 10, 15) # x=5 y=10 z=15. Total = 30
 print('----------------------------------------------------------')
 print('Importando a aula01 de funções para a aula13 como exemplo.')
 print('Esse módulo se chama:', __name__)
+
+
+# Toda vez que passa um parâmetro para a função e ele é mutável como uma lista
+# o Python vai reutilizar a lista.
+# Para ter uma lista nova toda vez?
+# A mais simples é criar uma lista fora da função.
+
+# Mas a melhor forma de resolver isso é não usar parâmetros mutáveis na função
+
+# Coloque o parâmetro como None - faça um if para chegar se for None cria uma lista
+# Toda vez que chamar a função sem passar o parâmetro lista=[] será criada uma nova lista
+
+
+def adiciona_clientes(nome, lista=None):
+    if lista is None:
+        lista= []
+    lista.append(nome)
+    return lista
+
+# lista1 = [] -> não é mais necessário
+
+cliente1 = adiciona_clientes('luiz')
+adiciona_clientes('Juju', cliente1)
+print(cliente1)
+
+cliente2 = adiciona_clientes('Felipe')
+adiciona_clientes('Eduarda', cliente2)
+print(cliente2)
+
+# Toda vez que for criar um parâmetro tem que checar se é mutável
+# Se for mutável, não coloca valor padrão na função, coloque None.
+# Se ninguém enviar, dentro da função cria o parâmetro
+# Se colocar um parâmetro mutável ele será sempre o mesmo para toda
+# as vezes que chamar a função
