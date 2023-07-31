@@ -264,4 +264,3 @@ while True:
         comandos['adicionar']
     comando()
     salvar(tarefas, CAMINHO_ARQUIVO)
-

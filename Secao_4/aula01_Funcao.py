@@ -93,3 +93,31 @@ print(cliente2)
 # Se ninguém enviar, dentro da função cria o parâmetro
 # Se colocar um parâmetro mutável ele será sempre o mesmo para toda
 # as vezes que chamar a função
+
+
+# ------------------------------------------------------------------
+
+
+# Controlando a quantidade de argumentos posicionais e nomeados em funções
+# *args (ilimitado de argumentos posicionais)
+# **kwargs (ilimitado de argumentos nomeados)
+# Positional-only Parameters (/) - Tudo antes da barra deve ser APENAS posicional.
+# PEP 570 – Python Positional-Only Parameters
+# https://peps.python.org/pep-0570/
+# Keyword-Only Arguments (*) - * sozinho NÃO SUGA valores.
+# PEP 3102 – Keyword-Only Arguments
+# https://peps.python.org/pep-3102/
+
+# Tudo que vem antes da barra só pode ser argumento posicional 
+# Não é possível passar argumentos nomeados antes da /
+# Depois da barra pode ser posicional ou nomeado
+
+# * tudo que vier antes pode ser argumento posicional e nomeado
+# * tudo que vier depois é argumento nomeado
+
+def soma(a, b, /, *, c, **kwargs):
+    print(kwargs)
+    print(a + b + c)
+
+
+soma(1, 2, c=3, nome='teste') 
