@@ -1,4 +1,8 @@
+# -----------------------------------------------------------------------------
 # Usando calendar para calendários e datas
+# -----------------------------------------------------------------------------
+
+
 # https://docs.python.org/3/library/calendar.html
 # calendar é usado para coisas genéricas de calendários e datas.
 # Com calendar, você pode saber coisas como:
@@ -30,10 +34,11 @@ for week in calendar.monthcalendar(2023, 8):
 
 print('-----\n')
 
+
+# -----------------------------------------------------------------------------
+# Locale - internacionalização (tradução)
 # -----------------------------------------------------------------------------
 
-
-# Locale - internacionalização (tradução)
 
 # https://docs.python.org/3/library/locale.html
 # https://learn.microsoft.com/fr-fr/powershell/module/international/get-winsystemlocale?view=windowsserver2022-ps&viewFallbackFrom=win10-ps
@@ -59,9 +64,8 @@ print('-----\n')
 
 
 # -----------------------------------------------------------------------------
-
-
 # OS - módulo para interação com o sistema
+# -----------------------------------------------------------------------------
 
 
 # O módulo os para interação com o sistema
@@ -84,9 +88,10 @@ print('-----\n')
 
 
 # -----------------------------------------------------------------------------
-
-
 # os.path --> apenas manipula o caminho.
+# -----------------------------------------------------------------------------
+
+
 # os.path trabalha com caminhos em Windows, Linux e Mac
 # Doc: https://docs.python.org/3/library/os.path.html#module-os.path
 # os.path é um módulo que fornece funções para trabalhar com caminhos de
@@ -134,9 +139,8 @@ print('-----\n')
 
 
 # ---------------------------------------------------------------------------
-
-
 # os.listdir --> para listar e navegar em caminhos
+# ---------------------------------------------------------------------------
 
 
 # caminho_livros = 'C:\\Livros\Ti'
@@ -151,14 +155,14 @@ for item in os.listdir(caminho_livros):
 
 print('-----')
 # não faz recursão em pastas internas. Só busca um nível.
-# Se tiver muitas pastas internas a serem buscadas, use o walk
-# Sò está mostrando o nome do arquivo e não os caminhos 
+# Se tiver muitas pastas internas a serem buscadas, use o os.walk
+# Só está mostrando o nome do arquivo e não os caminhos 
 
 for pasta in os.listdir(caminho_livros):
     caminho_completo_pasta = os.path.join(caminho, pasta)
     print(pasta)
 
-    if not os.path.isdir(caminho_completo_pasta): # chega se a pasta é diretório
+    if not os.path.isdir(caminho_completo_pasta): # checa se a pasta é diretório
         continue
 
     for imagem in os.listdir(caminho_completo_pasta):
@@ -176,5 +180,193 @@ for pasta in os.listdir(caminho_interno):
 
     for imagem in os.listdir(caminho_completo_pasta):
         print('  ', imagem)
+
+print('----------\n')
+
+
+# -----------------------------------------------------------------------------
+# os.walk --> para navegar em caminhos de forma recursiva
+# -----------------------------------------------------------------------------
+
+
+# os.walk é uma função que permite percorrer uma estrutura de diretórios de
+# maneira recursiva. Ela gera uma sequência de tuplas, onde cada tupla possui
+# três elementos: o diretório atual (root), uma lista de subdiretórios (dirs)
+# e uma lista dos arquivos do diretório atual (files).
+import os
+from itertools import count
+
+
+caminho_walk = os.path.join("/C:", os.sep, "Teste_Python")
+
+cont = count()
+
+for root, dirs, files in os.walk(caminho_walk):
+    print(files)
+
+print('-----00I00-----')
+
+for root, dirs, files in os.walk(caminho_walk):
+    the_counter = next(cont)
+    print(the_counter, root)
+
+print('################################\n')
+cont2 = count()
+
+for root, dirs, files in os.walk(caminho_walk):
+    the_counter = next(cont2)
+    print(the_counter, "Pasta atual", root)
+
+    for dir_ in dirs:
+        print("  ", the_counter, "Dir", dir_)
+
+
+print('=================#================\n')
+cont3 = count()
+
+for root, dirs, files in os.walk(caminho_walk):
+    the_counter = next(cont3)
+    print(the_counter, "Pasta atual", root)
+
+    for dir_ in dirs:
+        print("  ", the_counter, "Dir", dir_)
+
+    for file_ in files:
+        print("  ", the_counter, "FILE", file_)
+
+
+
+# -----------------------------------------------------------------------------
+
+
+# os.path.getsize e os.stat para dados dos arquivos (tamanho em bytes)
+
+import math
+import os
+from itertools import count
+
+
+# https://stackoverflow.com/questions/5194057/better-way-to-convert-file-sizes-in-python
+
+def formata_tamanho(tamanho_em_bytes: int, base: int = 1000) -> str:
+    """Formata um tamanho, de bytes para o tamanho apropriado"""
+    if tamanho_em_bytes <= 0:
+        return "0B"
+
+    abreviacao_tamanhos = "B", "KB", "MB", "GB", "TB", "PB"
+    # math.log vai retornar o logaritmo do tamanho_em_bytes
+    indice_abreviacao_tamanhos = int(math.log(tamanho_em_bytes, base))
+    # Por quanto nosso tamanho deve ser dividido para gerar o tamanho correto.
+    potencia = base ** indice_abreviacao_tamanhos
+    # Nosso tamanho final
+    tamanho_final = tamanho_em_bytes / potencia
+    # A abreviação que queremos
+    abreviacao_tamanho = abreviacao_tamanhos[indice_abreviacao_tamanhos]
+    return f'{tamanho_final:.2f} {abreviacao_tamanho}'
+
+count4 = count()
+
+for root, dirs, files in os.walk(caminho_walk):
+    the_counter = next(count4)
+    print(the_counter, 'Pasta atual', root)
+
+    for dir_ in dirs:
+        print('  ', the_counter, 'Dir:', dir_)
+
+    for file_ in files:
+        caminho_completo_arquivo = os.path.join(root, file_)
+        # tamanho = os.path.getsize(caminho_completo_arquivo)
+        stats = os.stat(caminho_completo_arquivo)
+        tamanho = stats.st_size
+        print('  ', the_counter, 'FILE:', file_, formata_tamanho(tamanho))
+
+print('----------\n')        
+
+
+# ------------------------------------------------------------------------------
+# os + shutil - Copiando arquivos e criando pastas com Python
+# ------------------------------------------------------------------------------
+
+
+caminho_walk = os.path.join("/C:", os.sep, "Teste_Python")
+
+# os + shutil - Mover copiar e apagar arquivos
+# Mover/Renomear -> shutil.move
+# Mover/Renomear -> os.rename
+# Copiar -> shutil.copy
+# Apagar os.unlink
+# Apagar diretórios recursivamente -> shutil.rmtree
+
+import shutil
+
+HOME = os.path.expanduser("~")
+print(HOME)  # C:\Users\bravo
+DESKTOP = os.path.join(HOME, "Desktop")
+print(DESKTOP)  # C:\Users\bravo\Desktop
+
+# 1 - copiar arquivos de uma pasta para outra
+PASTA_ORIGINAL = os.path.join(DESKTOP, "Python_teste")
+print(PASTA_ORIGINAL)  # C:\Users\bravo\Desktop\pasta_teste
+
+NOVA_PASTA = os.path.join(DESKTOP, "NOVA_PASTA")
+print(NOVA_PASTA)  # C:\Users\bravo\Desktop\NOVA_PASTA
+
+# Criando uma nova pasta - o Python n faz isso sozinho
+os.makedirs(NOVA_PASTA, exist_ok=True)  # Se a pasta já exitir n dará erro
+# replace substitui um valor por outro numa string
+
+for root, dirs, files in os.walk(PASTA_ORIGINAL):
+    for dir_ in dirs:
+        caminho_novo_diretorio = os.path.join(
+            root.replace(PASTA_ORIGINAL, NOVA_PASTA), dir_
+        )
+        os.makedirs(caminho_novo_diretorio, exist_ok=True)
+
+    for file in files:
+        caminho_arquivo = os.path.join(root, file)
+        caminho_novo_arquivo = os.path.join(
+            root.replace(PASTA_ORIGINAL, NOVA_PASTA), file
+        )
+        shutil.copy(caminho_arquivo, caminho_novo_arquivo)
+
+        print(caminho_novo_arquivo)  # C:\Users\bravo\Desktop\NOVA_PASTA
+
+
+# -----------------------------------------------------------------------------
+# Aula 287 - os + shutil - Apagando, copiando, movendo e renomeando pastas
+# -----------------------------------------------------------------------------
+
+
+# O código acima era mais uma lógica para entender como funciona
+# Mas é muito mais dinâmico podendo fazer qualquer coisa quando estiver copiando
+# Ex: poderia mudar a extenção, converter p outro formato, etc.
+# Existe uma forma muito mais fácil de fazer... com o copytree
+
+# Vamos copiar arquivos de uma pasta para outra
+# Copiar -> shutil.copy
+# copiar Árvore recursivamente -> shutil.copytree
+# Apagar Árvore recursivamente -> shutil.rmtree
+# Apagar arquivos -> os.unlink
+# Renomear/Mover -> shutil.move os os.rename - use o shutil.move da menos erros
+
+
+# Copiando de uma pasta para outra:
+# Só precisa da onde ta a pasta original e para onde a nova pasta vai ser criada
+# Só precisa dos caminhos
+
+shutil.rmtree(NOVA_PASTA, ignore_errors=True)
+shutil.copytree(PASTA_ORIGINAL, NOVA_PASTA)
+
+# Ao executar o comando acima, a pasta já existe e gera um erro
+# Para funcionar tem que apagar a pasta por recursão usando o comando:
+# shutil.rmtree(NOVA_PASTA)
+# Se existir algo dentro da pasta ou subpastas, tem que apagar por recursão
+# Primeiro tem que apagar todos os arquivos dentro de cada pasta, apagar todas
+# as subpastas e depois apagar a pasta original
+# para n ter erro use ignore_errors=True
+
+# Para mover/renomear
+# shutil.move(NOVA_PASTA, NOVA_PASTA + 'novo_nome/caminho')
+
 
 
